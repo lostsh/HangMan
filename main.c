@@ -19,7 +19,10 @@ int main() {
         exit(0);
     }
     initTab(lettresTrouvees, sizeWord);
+    //On ajoute la premiere lettre
+    proposerChar(secWord, lettresTrouvees, sizeWord, secWord[0]);
 
+    printf("Bienvenu au Pendu\n\n");
     while (coupsRestants > 0 && !gagne(lettresTrouvees, sizeWord)){
         printf("Il vous reste %d chances.\n", coupsRestants);
         for(int i=0;i<sizeWord;i++){
@@ -41,6 +44,9 @@ int main() {
         printf("Vous avez perdu.");
     }
     free(lettresTrouvees);
+
+    printf("\n\nPress a key to exit.\n");
+    scanf("%c");
     return 0;
 }
 
