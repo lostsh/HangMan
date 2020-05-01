@@ -7,91 +7,93 @@
 #define T_MAX_WORD 100
 
 int main() {
-    int coupsRestants = 10;
+    int lives = 10;
     char secWord[T_MAX_WORD] = "";
     pickWord(secWord);
     printf("%s", secWord);
 
-    int *lettresTrouvees = NULL; //tableau de boolean contenant les lettres trouvees
-    int sizeWord = len(secWord)-1;
-    lettresTrouvees = malloc(sizeof(int)*sizeWord);
-    if(lettresTrouvees == NULL){
+    int *trueLetters = NULL; //bool tab contain discovred lettes
+    int sizeWord = len(secWord)-1; //the last char of the word is '\n' due to the extraction of the file.
+    trueLetters = malloc(sizeof(int)*sizeWord);
+    if(trueLetters == NULL){
+        printf("[!] Not enough space\n\nPress a key to exit.");
+        scanf("%c");
         exit(0);
     }
-    initTab(lettresTrouvees, sizeWord);
-    //On ajoute la premiere lettre
-    proposerChar(secWord, lettresTrouvees, sizeWord, secWord[0]);
+    initTab(trueLetters, sizeWord);
+    //Adding the first letter of the word
+    suggestLetter(secWord, trueLetters, sizeWord, secWord[0]);
 
-    printf("Bienvenu au Pendu\n\n");
-    while (coupsRestants > 0 && !gagne(lettresTrouvees, sizeWord)){
-        printf("Il vous reste %d chances.\n", coupsRestants);
+    printf("Welcome to the hanged man\n\n");
+    while (lives > 0 && !win(trueLetters, sizeWord)){
+        printf("you have %d chances left.\n", lives);
         for(int i=0;i<sizeWord;i++){
-            if(lettresTrouvees[i] == 1){
+            if(trueLetters[i] == 1){
                 printf("%c", secWord[i]);
             }else{
                 printf("*");
             }
         }
         printf("\n");
-        int propalTrue = proposerChar(secWord, lettresTrouvees, sizeWord, lireCaractere());
+        int propalTrue = suggestLetter(secWord, trueLetters, sizeWord, readChar());
         if(!propalTrue){
-            coupsRestants--;
+            lives--;
         }
     }
-    if(gagne(lettresTrouvees, sizeWord)){
-        printf("Vous avez trouver le mot %s", secWord);
+    if(win(trueLetters, sizeWord)){
+        printf("You found the word %s", secWord);
     }else{
-        printf("Vous avez perdu.");
+        printf("You lost the word was %s", secWord);
     }
-    free(lettresTrouvees);
+    free(trueLetters);
 
     printf("\n\nPress a key to exit.\n");
     scanf("%c");
     return 0;
 }
 
-char lireCaractere(){
+char readChar(){
     printf(":\\>");
-    char caractere = 0;
-    caractere = getchar();
-    caractere = toupper(caractere);
+    char character = 0;
+    character = getchar();
+    character = toupper(character);
     while (getchar() != '\n');
-    return caractere;
+    return character;
 }
 
 void pickWord(char *secretWord){
-    FILE* dictionnaire = NULL;
-    dictionnaire = fopen("../dico.txt", "r");
-    int nbMots = 0;
-    if(dictionnaire != NULL){
+    FILE* dictionary = NULL;
+    dictionary = fopen("../dico.txt", "r");
+    int wordNumer = 0;
+    if(dictionary != NULL){
         char currentCar = 0;
         while (currentCar != EOF){
-            currentCar = fgetc(dictionnaire);
-            if(currentCar == '\n')nbMots++;
+            currentCar = fgetc(dictionary);
+            if(currentCar == '\n')wordNumer++;
         }
-        nbMots++; //le dernier mot n'a pas de retour a la ligne
-        rewind(dictionnaire);
-        int indexMot = nombreAleatoire(nbMots);
-        for(int i=0;i<indexMot;i++){
-            fgets(secretWord, T_MAX_WORD, dictionnaire);
+        wordNumer++; //last word don't have line break
+        rewind(dictionary);
+        int wordIndex = randInt(wordNumer);
+        for(int i=0;i<wordIndex;i++){
+            fgets(secretWord, T_MAX_WORD, dictionary);
         }
-        fclose(dictionnaire);
+        fclose(dictionary);
     }
 }
 
-int nombreAleatoire(const int borneSup){
-    srand(time(NULL));
-    return (rand()%borneSup);
+int randInt(const int upperBound){
+    srand(time(NULL));//init rand module
+    return (rand()%upperBound);
 }
 
-int gagne(const int* boolTab, const int size){
+int win(const int* boolTab, const int size){
     int i=0;
-    int isLettreNonTrouve = 0;
-    while (i<size && !isLettreNonTrouve){
-        isLettreNonTrouve = (boolTab[i]==0);
+    int remainUndiscoveredCars = 0;
+    while (i<size && !remainUndiscoveredCars){
+        remainUndiscoveredCars = (boolTab[i]==0);
         i++;
     }
-    return !isLettreNonTrouve;
+    return !remainUndiscoveredCars;
 }
 
 void initTab(int *tab,const int size){
@@ -110,14 +112,14 @@ int len(const char* string){
     return (size-1);
 }
 
-//renvoi 1 si la lettre propose est juste et 0 sinon
-int proposerChar(const char *hiddenWord, int *charOk, const int sizeOfWord, const char proposition){
-    int propositionVrai = 0;
+//return 1 if the word contain the letter, else return 0
+int suggestLetter(const char *hiddenWord, int *charOk, const int sizeOfWord, const char proposal){
+    int trueProposal = 0;
     for(int i=0;i<sizeOfWord;i++){
-        if(hiddenWord[i] == proposition){
+        if(hiddenWord[i] == proposal){
             charOk[i] = 1;
-            propositionVrai = 1;
+            trueProposal = 1;
         }
     }
-    return propositionVrai;
+    return trueProposal;
 }
