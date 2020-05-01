@@ -1,4 +1,4 @@
-#HangMan
+# HangMan
 *This is a tiny hangman game in C99*.
 
 This program is only a test, just for fun so it may contains ugly things,
@@ -16,7 +16,9 @@ Latest version available below.
 | Win 64b    | [HangMan.zip]()
 | Linux      | \\\\\\\\\\\\\\
 
-> Just download you version, extract it and enjoy !
+> Clic on the link, then clic *Download*
+>
+> Then, just extract it and enjoy !
 
 ## Customize
 You may add word to the file 'dico.txt', but only **UPPERCASE**.
