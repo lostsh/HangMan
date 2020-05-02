@@ -13,7 +13,7 @@ Latest version available below.
 | OS / Archi | 32 bit | 64 bit | Arm-v6 |
 |------------|--------------------------------|--------------------------------|--------------------------------|
 | Windows    | | [HangMan.zip](bin/HangMan.zip) | |
-| Linux      | | [HangMan.tgz]() | |
+| Linux      | | [HangMan.tar.xz](bin/HangMan_Linux64.tar.xz) | |
 | Mac Os     |
 
 > Clic on the link, then clic *Download*
