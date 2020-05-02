@@ -10,12 +10,11 @@ nothing has been sorted, and sorry for that ;p
 You can download executable version of the hangman game.
 Latest version available below.
 
-| OS / Archi | 32 bit | 64 bit | Arm-v6 |
-|------------|--------------------------------|--------------------------------|--------------------------------|
+| OS / Archi | 32 bit | 64 bit | Arm-v6 | PowerPc G6 |
+|------------|--------------------------------|--------------------------------|--------------------------------|--------------------------------|
 | Windows    | | [HangMan.zip](bin/HangMan.zip) | |
-| Linux      | | [HangMan.tar.xz](bin/HangMan_Linux64.tar.xz) | |
+| Linux      | | [HangMan.tar.xz](bin/HangMan_Linux64.tar.xz) | | [HangMan.tar.xz](bin/HangMan_PPCG6.tar.xz) |
 | Mac Os     |
-| PowerPc G6 | [HangMan.tar.xz](bin/HangMan_PPCG6.tar.xz)
 
 > Click on the link, then clic *Download*
 >
