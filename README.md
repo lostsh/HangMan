@@ -15,13 +15,14 @@ Latest version available below.
 | Windows    | | [HangMan.zip](bin/HangMan.zip) | |
 | Linux      | | [HangMan.tar.xz](bin/HangMan_Linux64.tar.xz) | |
 | Mac Os     |
+| PowerPc G6 | [HangMan.tar.xz](bin/HangMan_PPCG6.tar.xz)
 
-> Clic on the link, then clic *Download*
+> Click on the link, then clic *Download*
 >
 > Then, just extract it and enjoy !
 
 ## Customize
-You may add word to the file 'dico.txt', but only **UPPERCASE**.
+You may add word to the file 'dico.txt', but only on **UPPERCASE**.
 
 ## Exemple
 
