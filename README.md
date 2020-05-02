@@ -12,9 +12,9 @@ Latest version available below.
 
 | OS version | Binary build (Executable) |
 |------------|---------------------------|
-| Win 32b    | [HangMan.zip](bin/HangMan.zip) |
-| Win 64b    | [HangMan.zip]()
-| Linux      | \\\\\\\\\\\\\\
+| Win 32b    | [HangMan.zip]() |
+| Win 64b    | [HangMan.zip](bin/HangMan.zip) |
+| Linux      | [HangMan.tgz]() |
 
 > Clic on the link, then clic *Download*
 >
