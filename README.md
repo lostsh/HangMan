@@ -26,3 +26,9 @@ You may add word to the file 'dico.txt', but only on **UPPERCASE**.
 ## Exemple
 
 ![exemple](exemple.gif)
+
+## Build your own version from sources
+```bash
+cmake ./ #Will use the file CMakeList.txt
+make #Compile program
+```

@@ -16,7 +16,7 @@ int main() {
     int sizeWord = len(secWord)-1; //the last char of the word is '\n' due to the extraction of the file.
     trueLetters = malloc(sizeof(int)*sizeWord);
     if(trueLetters == NULL){
-        printf("[!] Not enough space\n\nPress a key to exit.");
+        fprintf(stderr, "[!] Not enough space\n\nPress a key to exit.\n");
         scanf("%c");
         exit(0);
     }
