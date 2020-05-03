@@ -20,15 +20,17 @@ Latest version available below.
 >
 > Then, just extract it and enjoy !
 
-## Customize
-You may add word to the file 'dico.txt', but only on **UPPERCASE**.
-
 ## Exemple
 
 ![exemple](exemple.gif)
 
+## Customize
+You may add word to the file 'dico.txt', but only on **UPPERCASE**.
+
 ## Build your own version from sources
+Go to the project folder.
+
 ```bash
-cmake ./ #Will use the file CMakeList.txt
-make #Compile program
+cmake ./    #Will use the file CMakeList.txt
+make        #Compile program
 ```
