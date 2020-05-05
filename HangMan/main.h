@@ -1,6 +1,4 @@
 char readChar();
-void pickWord(char*);
-int randInt(const int);
 int win(const int*, const int);
 int len(const char*);
 void initTab(int*, const int);

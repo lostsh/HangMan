@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <time.h>
 #include "main.h"
+#include "dictio.c"
 
 #define T_MAX_WORD 100
 
@@ -10,7 +9,7 @@ int main() {
     int lives = 10;
     char secWord[T_MAX_WORD] = "";
     pickWord(secWord);
-    printf("%s", secWord);
+    //printf("%s", secWord);
 
     int *trueLetters = NULL; //bool tab contain discovred lettes
     int sizeWord = len(secWord)-1; //the last char of the word is '\n' due to the extraction of the file.
@@ -60,31 +59,6 @@ char readChar(){
     character = toupper(character);
     while (getchar() != '\n');
     return character;
-}
-
-void pickWord(char *secretWord){
-    FILE* dictionary = NULL;
-    dictionary = fopen("../dico.txt", "r");
-    int wordNumer = 0;
-    if(dictionary != NULL){
-        char currentCar = 0;
-        while (currentCar != EOF){
-            currentCar = fgetc(dictionary);
-            if(currentCar == '\n')wordNumer++;
-        }
-        wordNumer++; //last word don't have line break
-        rewind(dictionary);
-        int wordIndex = randInt(wordNumer);
-        for(int i=0;i<wordIndex;i++){
-            fgets(secretWord, T_MAX_WORD, dictionary);
-        }
-        fclose(dictionary);
-    }
-}
-
-int randInt(const int upperBound){
-    srand(time(NULL));//init rand module
-    return (rand()%upperBound);
 }
 
 int win(const int* boolTab, const int size){
