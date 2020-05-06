@@ -117,7 +117,7 @@ int len(const char* string){
 int suggestLetter(const char *hiddenWord, int *charOk, const int sizeOfWord, const char proposal){
     int trueProposal = 0;
     for(int i=0;i<sizeOfWord;i++){
-        if(hiddenWord[i] == proposal){
+        if(hiddenWord[i] == proposal && charOk[i] != 1){
             charOk[i] = 1;
             trueProposal = 1;
         }
