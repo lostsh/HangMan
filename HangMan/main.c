@@ -5,7 +5,7 @@
 #define T_MAX_WORD 100
 
 int main() {
-    run();
+    run(1);
     printf("\n\nPress a key to exit.\n");
     scanf("%c");
     return 0;

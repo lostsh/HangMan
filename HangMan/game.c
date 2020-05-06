@@ -3,7 +3,8 @@
 #include <ctype.h>
 #include "game.h"
 
-void run(){
+//gameMode 0 = text only gameMode 1 = text & drawing
+void run(int gameMode){
     int lives = 10;
     char secWord[T_MAX_WORD] = "";
     pickWord(secWord);
@@ -69,7 +70,7 @@ int win(const int* boolTab, const int size){
 int suggestLetter(const char *hiddenWord, int *charOk, const int sizeOfWord, const char proposal){
     int trueProposal = 0;
     for(int i=0;i<sizeOfWord;i++){
-        if(hiddenWord[i] == proposal){
+        if(hiddenWord[i] == proposal && charOk[i] != 1){
             charOk[i] = 1;
             trueProposal = 1;
         }
